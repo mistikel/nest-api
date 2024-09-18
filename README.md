@@ -58,6 +58,65 @@ $ npm run test
 $ docker-compose up
 ```
 
+## Register Example
+```bash
+$ curl --location 'localhost:3000/users/register' \
+--header 'Content-Type: application/json' \
+--data '{
+  "username": "customer",
+  "password": "securepassword",
+  "role": "customer"
+}
+'
+```
+
+## Login Example
+```bash
+$ curl --location 'localhost:3000/auth/login' \
+--header 'Content-Type: application/json' \
+--data '{
+  "username": "customer",
+  "password": "securepassword"
+}'
+```
+
+## Cretate Product Example
+```bash
+$ curl --location 'localhost:3000/products' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer {authorization}' \
+--data '{
+  "name": "Smart Watch 3",
+  "price": 1300,
+  "warrantyPeriod": 12,
+  "description": "Smart Watch"
+}
+'
+```
+
+
+## Cretate Claim Example
+```bash
+$ curl --location 'localhost:3000/claims' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer {authorization}' \
+--data '{
+  "productId": "66e96f072b08f06a12b282bc",
+  "description": "The watch stopped broken after 1 month.",
+  "dateOfPurchase": "2024-05-01"
+}'
+```
+
+## Update Claim Example
+```bash
+$ curl --location --request PUT 'localhost:3000/claims/66e956ca88a263a4c53d255d/status' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer {authorization}' \
+--data '{
+    "status": "approved"
+}'
+```
+
 ## Support
 
 Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
