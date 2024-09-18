@@ -22,26 +22,20 @@ describe('ProductsController', () => {
               .mockResolvedValue([
                 { name: 'Product1', description: 'Test product' },
               ]),
-            findOne: jest
-              .fn()
-              .mockImplementation((id: string) =>
-                Promise.resolve({
-                  name: `Product ${id}`,
-                  description: 'Test product',
-                }),
-              ),
-            create: jest
-              .fn()
-              .mockResolvedValue({
-                name: 'Created Product',
+            findOne: jest.fn().mockImplementation((id: string) =>
+              Promise.resolve({
+                name: `Product ${id}`,
                 description: 'Test product',
               }),
-            update: jest
-              .fn()
-              .mockResolvedValue({
-                name: 'Updated Product',
-                description: 'Updated test product',
-              }),
+            ),
+            create: jest.fn().mockResolvedValue({
+              name: 'Created Product',
+              description: 'Test product',
+            }),
+            update: jest.fn().mockResolvedValue({
+              name: 'Updated Product',
+              description: 'Updated test product',
+            }),
             remove: jest.fn().mockResolvedValue({}),
             findByUserId: jest
               .fn()

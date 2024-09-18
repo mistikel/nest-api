@@ -15,7 +15,7 @@ import { UsersModule } from './modules/users/users.module';
     ConfigModule.forRoot({
       isGlobal: true,
     }),
-    MongooseModule.forRoot(process.env.MONGO_URI), 
+    MongooseModule.forRoot(process.env.MONGO_URI),
     ProductsModule,
     ClaimsModule,
     AuthModule,
